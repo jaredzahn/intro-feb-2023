@@ -3,6 +3,8 @@ namespace CSharpSyntax;
 
 public class CreatingAndInitializingTypes
 {
+    string thingy = "Birds";
+
     [Fact]
     public void UsingLiteralsToCreateInstancesOfTypes()
     {
@@ -35,6 +37,24 @@ public class CreatingAndInitializingTypes
 
         //option in c# 6, pretty obscure:
         Taco lunch = new();
+
+        Assert.Equal(100, myLevel);
+        Assert.IsType<Taco>(favoriteFood);
+    }
+
+    [Fact]
+    public void CurlyBracescreateScopes()
+    {
+        Assert.Equal("Birds", thingy);
+
+        var message = "";
+        var age = 22;
+
+        if (age >= 21) {
+            message = "Old Enough";
+        }
+
+        Assert.Equal(message, "Old Enough");
     }
 }
 
