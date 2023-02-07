@@ -82,6 +82,26 @@ public class CreatingAndInitializingTypes
         var m3 = $"{name} makes {pay:c} a year";
     }
 
+    [Fact]
+    public void DoingconversionsOnTypes()
+    {
+        string myPay = "10000.83";
+
+        if (decimal.TryParse(myPay, out decimal payAsNumber))
+        {
+            Assert.Equal(10_000.83M, payAsNumber);
+        } else
+        {
+            Assert.True(false); //it should error here.
+        }
+
+        var birthdate = DateTime.Parse("04/20/1969");
+        Assert.Equal(4, birthdate.Month);
+        Assert.Equal(20, birthdate.Day);
+        Assert.Equal(1969, birthdate.Year);
+
+    }
+
 }
 
 public class Taco { }
