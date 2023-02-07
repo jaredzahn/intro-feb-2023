@@ -2,12 +2,7 @@ namespace Demo1.UnitTests
 {
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
-        {
-            
-        }
-
+       
         [Fact]
         public void CanAddTwoNumbers()
         {
@@ -17,6 +12,16 @@ namespace Demo1.UnitTests
             c = a + b;
             //Then (Assert)
             Assert.Equal(30, c);
+        }
+
+        [Theory]
+        [InlineData(2,2,4)]
+        [InlineData(8, 2, 10)]
+        [InlineData(40, 2, 42)]
+        public void CanAddTwoNumberTheory(int a, int b, int expected)
+        {
+            int answer = a + b;
+            Assert.Equal(expected, answer);
         }
     }
 }
