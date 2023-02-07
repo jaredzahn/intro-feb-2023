@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace CSharpSyntax;
 
 public class CreatingAndInitializingTypes
@@ -54,8 +56,21 @@ public class CreatingAndInitializingTypes
             message = "Old Enough";
         }
 
-        Assert.Equal(message, "Old Enough");
+        Assert.Equal("Old Enough", message);
     }
+
+    [Fact]
+    public void MutableStringWithStringBuilders()
+    {
+        var message = new StringBuilder();
+
+        foreach(var num in Enumerable.Range(1, 10000))
+        {
+            message.Append(num.ToString() + ", ");
+        }
+        Assert.True(message.ToString().StartsWith("1, 2, 3, 4"));
+    }
+
 }
 
 public class Taco { }
