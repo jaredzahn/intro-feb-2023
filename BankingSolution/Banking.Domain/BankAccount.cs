@@ -26,15 +26,15 @@ public class BankAccount
 
     public void Withdraw(decimal amountToWithdraw)
     {
-        if (amountToWithdraw > _balance)
-        {
-            //do nothing. overdrafts not allowed.
-        }
-        else
+       if (NotOverdraft(amountToWithdraw))
         {
             _balance -= amountToWithdraw;
         }
- 
+    }
+
+    public bool NotOverdraft(decimal amountToWithdraw)
+    {
+        return (_balance >= amountToWithdraw);
     }
 
 }

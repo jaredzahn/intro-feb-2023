@@ -1,32 +1,35 @@
 ﻿namespace Banking.UnitTests;
-
-public class MakingWithdrawals                                                        
+public class MakingWithdrawals
 {
+    private BankAccount _account;
+    private decimal _openingBalance; 
 
-    [Fact]
-    public void MakingAWithdrawalDecreasesBalance()
+    public MakingWithdrawals()
     {
-        //Arrange:
-        var account = new BankAccount();
-        var openingBalance = account.GetBalance();
-        var amountToWithdrawal = 100M;
-        //Act:
-        account.Withdraw(amountToWithdrawal);
-        //Assert:
-        Assert.Equal(openingBalance - amountToWithdrawal, account.GetBalance());
+        _account = new BankAccount();
+        _openingBalance = _account.GetBalance();
+    }
+
+
+    [Theory]
+    [InlineData(100)]
+    [InlineData(183.23)]
+    public void MakingAWithdrawalDecreasesBalance(decimal amountToWithdraw)
+    {
+        _account.Withdraw(amountToWithdraw); Assert.Equal(_openingBalance - amountToWithdraw, _account.GetBalance());
     }
 
     [Fact]
-    public void OverdraftNotAllowed()
+    public void OverdraftIsNotAllowedBalanceStaysTheSame()
     {
-        //Arrange:
-        var account = new BankAccount();
-        var openingBalance = account.GetBalance();
-        var amountToWithdraw = openingBalance + .01M;
-        //Act:
-        account.Withdraw(amountToWithdraw);
-        //Assert:
-        Assert.Equal(openingBalance, account.GetBalance());
+        var amountToWithdraw = _openingBalance + .01M;
+        _account.Withdraw(amountToWithdraw);
+        Assert.Equal(_openingBalance, _account.GetBalance());
     }
-
+    [Fact]
+    public void CanTakeEntireBalance()
+    {
+        _account.Withdraw(_account.GetBalance());
+        Assert.Equal(0, _account.GetBalance());
+    }
 }
