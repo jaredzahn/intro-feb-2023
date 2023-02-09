@@ -23,7 +23,7 @@ public class BankAccount
     {
         //  Write the code you wish you had:
         decimal bonus = _bonusCalculator.GetDepositBonusFor(_balance, amountToDeposit);
-        _balance += amountToDeposit;
+        _balance += amountToDeposit + bonus;
     }
 
     public void Withdraw(decimal amountToWithdraw)
@@ -31,6 +31,10 @@ public class BankAccount
        if (NotOverdraft(amountToWithdraw))
         {
             _balance -= amountToWithdraw;
+        }
+        else
+        {
+            throw new AccountOverdraftException();
         }
     }
 
