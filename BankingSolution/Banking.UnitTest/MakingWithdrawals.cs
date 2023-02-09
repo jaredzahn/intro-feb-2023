@@ -23,7 +23,15 @@ public class MakingWithdrawals
     public void OverdraftIsNotAllowedBalanceStaysTheSame()
     {
         var amountToWithdraw = _openingBalance + .01M;
-        _account.Withdraw(amountToWithdraw);
+        try
+        {
+            _account.Withdraw(amountToWithdraw);
+        }
+        catch (AccountOverdraftException)
+        {
+
+            
+        }
         Assert.Equal(_openingBalance, _account.GetBalance());
     }
     [Fact]
