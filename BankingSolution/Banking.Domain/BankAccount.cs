@@ -1,5 +1,7 @@
 ﻿namespace Banking.Domain;
 
+
+
 public class BankAccount
 {
     //Class Variables:
