@@ -9,6 +9,6 @@ public class NewAccounts
 
         decimal openingBalance = account.GetBalance();
 
-        Assert.Equal(500M, openingBalance);
+        Assert.Equal(5000M, openingBalance);
     }
 }

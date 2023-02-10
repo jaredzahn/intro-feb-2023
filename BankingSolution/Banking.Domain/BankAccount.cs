@@ -9,7 +9,7 @@ public class BankAccount
     //Constructor:
     public BankAccount(ICanCalculateAccountBonuses bonusCalc)
     {
-        _balance = 500M;
+        _balance = 5000M;
         _bonusCalculator = bonusCalc;
     }
 
