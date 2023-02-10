@@ -40,11 +40,18 @@ namespace BankingKiosk
             }
             catch (FormatException)
             {
-                MessageBox.Show("Enter a #.", "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var message = "Enter a #.";
+                MessageBox.Show(message, "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (AccountOverdraftException)
             {
-                MessageBox.Show("You don't have enough funds to withdraw requested amount.", "Error in Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var message = "You don't have enough funds to withdraw requested amount.";
+                MessageBox.Show(message, "Error in Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NoNegativeNumbersException)
+            {
+                var message = "No Negative Numbers Allowed.";
+                MessageBox.Show(message, "Error in Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
