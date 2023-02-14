@@ -8,6 +8,7 @@ import { ShoppingListComponent } from './Components/shopping-list/shopping-list/
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AboutComponent } from './Components/about/about.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavigationComponent } from './Components/navigation/navigation.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
