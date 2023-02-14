@@ -14,7 +14,7 @@ public class StatusController : ControllerBase
     }
 
     [HttpGet("/status")]
-    public ActionResult GetTheStatus()
+    public ActionResult<GetStatusResponse> GetTheStatus()
     {
         var contact = _systemTime.GetCurrent().Hour < 16 ? "bob@aol.com" : "555-555-555";
         var response = new GetStatusResponse

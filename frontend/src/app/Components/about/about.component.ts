@@ -16,6 +16,7 @@ export class AboutComponent {
   getStatus() {
     this.responseFromServer$ = this.client.get<StatusResponseModel>('http://localhost:1337/status');
   }
+  
 }
 
 type StatusResponseModel = {
