@@ -7,8 +7,10 @@
     </div>
     <div class="card-footer">
         <button (click)="getStatus()" class="btn btn-primary">See The API Status</button>
-        <pre>
-            {{responseFromServer$ | async | json }}
-        </pre>
+        
+        <div *ngIf="(responseFromServer$ | async) as response">
+            <p>The status is {{response.message }}</p>
+            <p>Contact for help: {{response.contact }}</p>
+        </div>
     </div>
 </div>
