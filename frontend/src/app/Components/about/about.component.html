@@ -6,6 +6,9 @@
         <p>This application was created for the Intro to Programming Class.</p>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary">See The API Status</button>
+        <button (click)="getStatus()" class="btn btn-primary">See The API Status</button>
+        <pre>
+            {{responseFromServer$ | async | json }}
+        </pre>
     </div>
 </div>
