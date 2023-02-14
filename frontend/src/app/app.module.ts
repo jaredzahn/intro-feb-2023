@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +9,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AboutComponent } from './Components/about/about.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StatusDataService } from './services/status-data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [StatusDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
