@@ -11,6 +11,8 @@ import { NavigationComponent } from './Components/navigation/navigation.componen
 import { HttpClientModule } from '@angular/common/http';
 import { StatusDataService } from './services/status-data.service';
 import { CounterComponent } from './Components/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './state';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CounterComponent } from './Components/counter/counter.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [StatusDataService],
   bootstrap: [AppComponent]
