@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './Components/about/about.component';
+import { CounterComponent } from './Components/counter/counter.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { ShoppingListComponent } from './Components/shopping-list/shopping-list/shopping-list.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'navigation',
     component: NavigationComponent
+  },
+  {
+    path: 'counter',
+    component: CounterComponent
   },
   {
     path: '**',
