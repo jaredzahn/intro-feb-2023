@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectCounterCurrent } from './state';
+import { counterEvents } from './state/actions/counter.action';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Learning Resources Application';
+
+  current$ = this.store.select(selectCounterCurrent);
+  constructor(private store: Store) {
+
+    this.store.dispatch(counterEvents.counterEntered())
+  }
 }
