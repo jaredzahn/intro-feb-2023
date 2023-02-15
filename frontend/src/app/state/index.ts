@@ -12,7 +12,7 @@ export const reducers:ActionReducerMap<AppState> = {
 };
 
 //1. create a "feature selector"
-const selectcounterFeature = createFeatureSelector<fromCounter.CounterState>('counter');
+export const selectCounterFeature = createFeatureSelector<fromCounter.CounterState>('counter');
 
 //2. create a selector per branch of the state
 
@@ -25,11 +25,11 @@ const selectcounterFeature = createFeatureSelector<fromCounter.CounterState>('co
 
 //5. We need a selector that returns the current of the counter.
 export const selectCounterCurrent = createSelector(
-    selectcounterFeature,
+    selectCounterFeature,
     (f => f.current)
 )
 
 export const selectCounterCountingBy = createSelector(
-    selectcounterFeature,
+    selectCounterFeature,
     f => f.by
 )
