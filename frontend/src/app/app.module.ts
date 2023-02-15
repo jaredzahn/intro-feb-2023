@@ -13,6 +13,7 @@ import { StatusDataService } from './services/status-data.service';
 import { CounterComponent } from './Components/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { reducers } from './state';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [StatusDataService],
   bootstrap: [AppComponent]
