@@ -28,3 +28,8 @@ export const selectCounterCurrent = createSelector(
     selectcounterFeature,
     (f => f.current)
 )
+
+export const selectCounterCountingBy = createSelector(
+    selectcounterFeature,
+    f => f.by
+)
