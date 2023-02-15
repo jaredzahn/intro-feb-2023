@@ -1,7 +1,11 @@
 <div>
-    <button (click)="decrement()"
+        <button (click)="decrement()"
             class="btn btn-danger btn-sm">-</button>
-    <span>{{current$ | async}}</span>
-    <button (click)="increment()"
+        <span>{{current$ | async}}</span>
+        <button (click)="increment()"
             class="btn btn-success btn-sm">+</button>
+        <div>
+                <button (click)="reset()" [disabled] = "(current$ | async) === 0"
+                class="btn btn-primary btn-sm">Reset</button>
+        </div>
 </div>
