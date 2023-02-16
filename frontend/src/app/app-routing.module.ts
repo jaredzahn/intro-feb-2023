@@ -28,6 +28,10 @@ const routes: Routes = [
     component: CounterComponent
   },
   {
+    path: 'learning',
+    loadChildren: () => import('./learning-resources/learning-resources.module').then(m => m.LearningResourcesModule)
+  },
+  {
     path: '**',
     component: DashboardComponent
   }

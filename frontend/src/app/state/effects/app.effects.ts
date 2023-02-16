@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { concatMap } from "rxjs";
 import { applicationEvents } from "../actions/app.actions";
 
-
+@Injectable()
 export class ApplicationEffects {
 
     logErrorsToServer = createEffect(() => {
