@@ -12,7 +12,8 @@ export const itemsEvents = createActionGroup({
 export const itemsDocuments = createActionGroup({
     source: 'Items Documents',
     events: {
-        items: props<{ payload: ItemEntity[] }>()
+        items: props<{ payload: ItemEntity[] }>(),
+        item: props<{payload: ItemEntity}>() //our effect is going to turn the created action into by calling the api.
     }
 })
 
